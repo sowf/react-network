@@ -1,5 +1,4 @@
 import React from 'react';
-import { sendMessageCreator, createMessageCreator } from '../../../redux/store';
 
 
 const CreateMessage = (props) => {

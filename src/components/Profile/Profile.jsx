@@ -3,11 +3,13 @@ import styles from './Profile.module.css'
 import UserImage from './UserImage/UserImage'
 import UserInfo from './UserInfo/UserInfo';
 import Post from './Post/Post';
-import NewPostContainer from './NewPost/NewPostContainer';
+import NewPost from './NewPost/NewPost';
 
 const Profile = (props) => {
 
-    let postElements = props.state.posts.map( post => <Post likes={post.likes} text={post.text}/>)
+    let postElements = props.profilePage.posts.map(post => <Post key={post.id} likes={post.likes} text={post.text} />)
+
+    let textInputArea = new React.createRef()
 
     return (
         <div className="col-9">
@@ -17,7 +19,7 @@ const Profile = (props) => {
                 </div>
                 <UserImage />
                 <UserInfo />
-                <NewPostContainer dispatch={props.dispatch} textInputValue={ props.state.newPost } />
+                <NewPost textInputValue={props.profilePage.newPost} publishPost={props.publishPost} typePost={props.typePost} />
                 {postElements}
             </div>
         </div>

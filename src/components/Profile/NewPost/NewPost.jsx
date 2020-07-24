@@ -1,11 +1,11 @@
 import React from 'react'
-import { addPostCreator, createPostCreator } from '../../../redux/store'
 
 
 const NewPost = (props) => {
 
     let textInputArea = new React.createRef()
 
+    debugger
     let publishPost = () => {
         props.publishPost()
     }

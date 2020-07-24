@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 
 const Dialogs = (props) => {
 
-    let peopleElements = props.people.map(person => <Person name={person.name} id={person.id}/>)
+    let peopleElements = props.people.map(person => <Person key={person.id} name={person.name} id={person.id}/>)
 
     return (
         <div className="col-2 border-right">

@@ -22,12 +22,16 @@ let initialState = {
 export const messageReducer = (state = initialState, action) => {
     switch(action.type){
         case SEND_MESSAGE:
-          state.messages.push({id:6, text:state.newMessage, align:'ml-auto'})
-          state.newMessage = ""
-          return state
+          return {
+            ...state,
+            messages: [...state.messages, {id:6, text:state.newMessage, align:'ml-auto'}],
+            newMessage: ""
+          }
         case CREATE_MESSAGE:
-          state.newMessage = action.text
-          return state
+          return {
+            ...state,
+            newMessage: action.text
+          }
         default:
           return state
       }
