@@ -7,12 +7,12 @@ const NewPost = (props) => {
     let textInputArea = new React.createRef()
 
     let publishPost = () => {
-        props.dispatch(addPostCreator())
+        props.publishPost()
     }
 
     let typePost = () => {
         let text = textInputArea.current.value
-        props.dispatch(createPostCreator(text))
+        props.typePost(text)
     }
 
     return (

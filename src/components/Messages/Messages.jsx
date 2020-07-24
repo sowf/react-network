@@ -1,7 +1,7 @@
 import React from 'react'
 import Dialogs from './Dialogs/Dialogs'
 import Text from './MessagesText/MessagesText'
-import CreateMessage from './CreateMessage/CreateMessage'
+import CreateMessageContainer from './CreateMessage/CreateMessageContainer'
 
 
 const Messages = (props) => {
@@ -10,7 +10,7 @@ const Messages = (props) => {
             <div className="row">
                 <Dialogs people={props.state.people} />
                 <Text messages={props.state.messages} />
-                <CreateMessage textInputValue={ props.state.newMessage } dispatch={props.dispatch}/>
+                <CreateMessageContainer textInputValue={ props.state.newMessage } dispatch={props.dispatch}/>
             </div>
         </div>
     )

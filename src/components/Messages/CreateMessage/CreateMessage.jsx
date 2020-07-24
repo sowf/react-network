@@ -3,16 +3,15 @@ import { sendMessageCreator, createMessageCreator } from '../../../redux/store';
 
 
 const CreateMessage = (props) => {
-    debugger
     
-    let inputTextArea = React.createRef();
+    let inputTextArea = React.createRef()
 
     let sendMessage = () => {
-        props.dispatch(sendMessageCreator())
+        props.sendMessage()
     }
     let createMessage = () => {
-        let text = inputTextArea.current.value;
-        props.dispatch(createMessageCreator(text))
+        let text = inputTextArea.current.value
+        props.createMessage(text)
     }
 
     return (

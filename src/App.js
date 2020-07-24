@@ -6,7 +6,6 @@ import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
 import Messages from './components/Messages/Messages';
 
-//TODO:Создать контейнерные компоненты
 //TODO:Сделать передачу данных через контекст
 //TODO:Добавить react-redux
 //TODO:Добвавить ключ-свойство

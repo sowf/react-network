@@ -3,7 +3,7 @@ import styles from './Profile.module.css'
 import UserImage from './UserImage/UserImage'
 import UserInfo from './UserInfo/UserInfo';
 import Post from './Post/Post';
-import NewPost from './NewPost/NewPost';
+import NewPostContainer from './NewPost/NewPostContainer';
 
 const Profile = (props) => {
 
@@ -17,7 +17,7 @@ const Profile = (props) => {
                 </div>
                 <UserImage />
                 <UserInfo />
-                <NewPost dispatch={props.dispatch} textInputValue={ props.state.newPost } />
+                <NewPostContainer dispatch={props.dispatch} textInputValue={ props.state.newPost } />
                 {postElements}
             </div>
         </div>
