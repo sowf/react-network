@@ -1,0 +1,6 @@
+.background{
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}

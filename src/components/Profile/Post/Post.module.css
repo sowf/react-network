@@ -1,0 +1,8 @@
+.photo{
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+}
+.text{
+    font-weight: 400;
+}
