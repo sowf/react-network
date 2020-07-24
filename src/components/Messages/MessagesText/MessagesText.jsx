@@ -3,7 +3,7 @@ import Message from './Message';
 
 
 const Text = (props) => {
-49
+
     let messagesElements = props.messages.map( message => <Message key={message.id} text={message.text} align={message.align}/>)
 
     return(
