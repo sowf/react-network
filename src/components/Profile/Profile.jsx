@@ -1,9 +1,9 @@
+import NewPost from './NewPost/NewPost';
+import Post from './Post/Post';
 import React from 'react';
-import styles from './Profile.module.css'
 import UserImage from './UserImage/UserImage'
 import UserInfo from './UserInfo/UserInfo';
-import Post from './Post/Post';
-import NewPost from './NewPost/NewPost';
+import styles from './Profile.module.css'
 
 const Profile = (props) => {
 
@@ -19,7 +19,7 @@ const Profile = (props) => {
                 </div>
                 <UserImage />
                 <UserInfo />
-                <NewPost textInputValue={props.profilePage.newPost} publishPost={props.publishPost} typePost={props.typePost} />
+                <NewPost textInputValue={props.profilePage.newPost} publishPost={props.publishPost} createPost={props.createPost} />
                 {postElements}
             </div>
         </div>
