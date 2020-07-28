@@ -7,6 +7,7 @@ const Navbar = () => {
             <div className="list-group list-group-flush w-100">
                 <NavLink className="list-group-item list-group-item-action" to="/profile">Profile</NavLink> 
                 <NavLink className="list-group-item list-group-item-action" to="/messages">Messages</NavLink>
+                <NavLink className="list-group-item list-group-item-action" to="/people">People</NavLink>
                 <a href="#" className="list-group-item list-group-item-action">Music</a>
                 <a href="#" className="list-group-item list-group-item-action">Settings</a>
                 <a href="#" className="list-group-item list-group-item-action">Log out</a>

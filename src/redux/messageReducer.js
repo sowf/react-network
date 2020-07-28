@@ -36,3 +36,11 @@ export const messageReducer = (state = initialState, action) => {
           return state
       }
 }
+
+export const sendMessageCreator = () => {
+  return {type:SEND_MESSAGE}
+}
+export const createMessageCreator = (text) => {
+  return {type:CREATE_MESSAGE, text:text}
+}
+

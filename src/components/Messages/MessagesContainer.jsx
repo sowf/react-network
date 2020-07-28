@@ -1,7 +1,7 @@
-import Messages from './Messages'
-import { sendMessageCreator, createMessageCreator } from '../../redux/store';
-import { connect } from 'react-redux'
+import { createMessageCreator, sendMessageCreator } from '../../redux/messageReducer';
 
+import Messages from './Messages'
+import { connect } from 'react-redux'
 
 let mapStateToProps = (state) => {
     return {

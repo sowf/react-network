@@ -52,12 +52,7 @@ const CREATE_MESSAGE = "CREATE_MESSAGE";
 //   }
 // }
 
-export const addPostCreator = () => {
-  return {type:ADD_POST}
-}
-export const createPostCreator = (text) => {
-  return {type:CREATE_POST, text:text}
-}
+
 export const sendMessageCreator = () => {
   return {type:SEND_MESSAGE}
 }
