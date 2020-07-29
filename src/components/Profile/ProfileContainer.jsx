@@ -9,15 +9,17 @@ import { withRouter } from 'react-router-dom';
 class ProfileAPIContainer extends React.Component {
 
     componentDidMount() {
+        let userId = this.props.match.params.userId
+        debugger
         Axios.get(
-            `https://social-network.samuraijs.com/api/1.0/profile/4`,
+            `https://social-network.samuraijs.com/api/1.0/profile/`+userId,
             {
                 headers: {
                     "API-KEY": "aac71a96-ea21-4187-aca1-6ee0cb0d5ac1",
                 },
             }
         ).then((response) => {
-            this.props.setUserProfile(response.data.items);
+            this.props.setUserProfile(response.data);
         });
     }
 

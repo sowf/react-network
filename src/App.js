@@ -23,7 +23,7 @@ function App() {
                         render={() => <MessagesContainer />}
                     />
                     <Route
-                        path="/profile"
+                        path="/profile/:userId?"
                         render={() => <ProfileContainer />}
                     />
                     <Route path="/people" render={() => <PeopleContainer />} />

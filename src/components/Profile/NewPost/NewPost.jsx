@@ -3,8 +3,7 @@ import React from 'react'
 const NewPost = (props) => {
 
     let textInputArea = new React.createRef()
-
-    debugger
+    
     let publishPost = () => {
         props.publishPost()
     }

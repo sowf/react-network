@@ -4,3 +4,7 @@
     object-fit: cover;
     opacity: 0.5;
 }
+.profilePic{
+    height: 200px;
+    width: 200px;
+}
