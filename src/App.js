@@ -9,10 +9,9 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import React from "react";
 import { Route } from "react-router-dom";
 
-//TODO:сделать tdd для удаления пользователей
 //TODO:роутинг до от чужого профиля до домашней
-//TODO:
-//TODO:
+//TODO:рефакторинг кода
+//TODO:создание lazy загрузки 
 
 function App() {
     return (
