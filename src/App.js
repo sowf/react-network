@@ -1,6 +1,7 @@
 import "./App.css";
 
-import Header from "./components/Header/Header";
+import HeaderContainer from "./components/Header/HeaderContainer";
+import LoginContainer from './components/Login/LoginContainer'
 import MessagesContainer from "./components/Messages/MessagesContainer";
 import Navbar from "./components/Navbar/Navbar";
 import PeopleContainer from "./components/People/PeopleContainer";
@@ -8,13 +9,15 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import React from "react";
 import { Route } from "react-router-dom";
 
-//TODO:отображение профиля при переходе (верстка)
-//TODO:конкретизация при переходе
+//TODO:сделать tdd для удаления пользователей
+//TODO:роутинг до от чужого профиля до домашней
+//TODO:
+//TODO:
 
 function App() {
     return (
         <div>
-            <Header />
+            <HeaderContainer />
             <div className="container-fluid">
                 <div className="row">
                     <Navbar />
@@ -23,10 +26,11 @@ function App() {
                         render={() => <MessagesContainer />}
                     />
                     <Route
-                        path="/profile/:userId?"
+                        path="/profile/:userId"
                         render={() => <ProfileContainer />}
                     />
                     <Route path="/people" render={() => <PeopleContainer />} />
+                    <Route path="/login" render={() => <LoginContainer />} />
                 </div>
             </div>
         </div>

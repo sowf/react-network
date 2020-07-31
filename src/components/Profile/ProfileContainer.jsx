@@ -1,43 +1,62 @@
-import { createPost, publishPost, setUserProfile } from '../../redux/profileReducer'
+import {
+    createPost,
+    getProfile,
+    getUserStatus,
+    publishPost,
+    setUserProfile,
+    toggleHomeProfile,
+    toggleIsFetching,
+    updateUserStatus
+} from "../../redux/profileReducer";
+import {
+    getProfilePage,
+    getStatus
+} from "../../redux/profileSelector"
 
-import Axios from "axios";
-import Profile from './Profile';
-import React from 'react'
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { Preloader } from "../preloader";
+import Profile from "./Profile";
+import React from "react";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { getId } from "../../redux/authSelector";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { withRouter } from "react-router-dom";
 
 class ProfileAPIContainer extends React.Component {
-
     componentDidMount() {
-        let userId = this.props.match.params.userId
-        debugger
-        Axios.get(
-            `https://social-network.samuraijs.com/api/1.0/profile/`+userId,
-            {
-                headers: {
-                    "API-KEY": "aac71a96-ea21-4187-aca1-6ee0cb0d5ac1",
-                },
-            }
-        ).then((response) => {
-            this.props.setUserProfile(response.data);
-        });
+        let userId = this.props.match.params.userId;
+        this.props.getProfile(userId)
+        
+        this.props.toggleHomeProfile(this.props.id == userId)
     }
 
     render() {
-        return <Profile {...this.props}  />
+        if (this.props.profilePage.isFetching){
+            return <Preloader />
+        }
+        return <Profile {...this.props} />;
     }
 }
 
 let mapStateToProps = (state) => {
     return {
-        profilePage: state.profilePage
-    }
-}
+        profilePage: getProfilePage(state),
+        status: getStatus(state),
+        id: getId(state)
+    };
+};
 
-let profileURLDataContainerComponent = withRouter(ProfileAPIContainer)
-
-const ProfileContainer = connect(mapStateToProps, {setUserProfile, createPost, publishPost})(profileURLDataContainerComponent)
-
-
-
-export default ProfileContainer;
+export default compose(
+    connect(mapStateToProps, {
+        setUserProfile,
+        createPost,
+        publishPost,
+        getProfile,
+        getUserStatus,
+        updateUserStatus,
+        toggleHomeProfile,
+        toggleIsFetching
+    }),
+    withRouter,
+    withAuthRedirect
+)(ProfileAPIContainer);

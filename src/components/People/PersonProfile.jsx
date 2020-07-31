@@ -1,16 +1,48 @@
 import "./PersonProfile.css";
 
+import Axios from "axios";
 import DefaultUserImage from "../../assets/defaultUserImage.png";
 import { NavLink } from "react-router-dom";
 import React from "react";
 
 const Person = (props) => {
+    
     let onFollowClick = () => {
-        props.follow(props.id);
+        props.toggleIsFollowing(true, props.id)
+        Axios.post(
+            `https://social-network.samuraijs.com/api/1.0/follow/` + props.id, {}, 
+            {
+                withCredentials: true,
+                headers: {
+                    "API-KEY": "aac71a96-ea21-4187-aca1-6ee0cb0d5ac1",
+                },
+            }
+        ).then((response) => {
+            if (response.data.resultCode == 0) {
+                props.follow(props.id);
+                props.toggleIsFollowing(false, props.id)
+            }
+        });
+        
     };
 
     let onUnfollowClick = () => {
-        props.unfollow(props.id);
+        props.toggleIsFollowing(true, props.id)
+        Axios.delete(
+            `https://social-network.samuraijs.com/api/1.0/follow/` + props.id,
+            {
+                withCredentials: true,
+                headers: {
+                    "API-KEY": "aac71a96-ea21-4187-aca1-6ee0cb0d5ac1",
+                },
+            }
+        ).then((response) => {
+            if (response.data.resultCode == 0) {
+                props.unfollow(props.id);
+                props.toggleIsFollowing(false, props.id)
+            }
+        });
+        
     };
 
     return (
@@ -31,11 +63,11 @@ const Person = (props) => {
             </div>
             <div className="col-5 mt-5 text-right">
                 {props.followed ? (
-                    <button class="btn btn-primary" onClick={onUnfollowClick}>
+                    <button disabled={props.usersInFollowingProgress.some(id => id === props.id)} class="btn btn-primary" onClick={onUnfollowClick}>
                         Отписаться
                     </button>
                 ) : (
-                    <button class="btn btn-primary" onClick={onFollowClick}>
+                    <button disabled={props.usersInFollowingProgress.some(id => id === props.id)} class="btn btn-primary" onClick={onFollowClick}>
                         Подписаться
                     </button>
                 )}

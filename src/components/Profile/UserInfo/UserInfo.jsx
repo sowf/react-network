@@ -1,15 +1,17 @@
+import ProfileStatus from './ProfileStatus'
 import React from "react";
 import styles from "./UserInfo.module.css";
 
 const UserInfo = (props) => {
     return (
         <>
-            <div className="col-8">
+            <div className="col-8 pb-3 border-bottom">
                 {props.contacts ? (
-                    <>
+                    <>  
                         <div className={`${styles.userName} mt-1`}>
                             {props.fullName}
                         </div>
+                        <ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus}/>
                         <div className={`${styles.aboutMe} mt-1`}>
                             {props.aboutMe}
                         </div>

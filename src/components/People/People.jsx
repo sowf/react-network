@@ -21,7 +21,11 @@ const People = (props) => {
                 name={person.name}
                 status={person.status}
                 image={person.photos.large}
+                usersInFollowingProgress={
+                    props.peoplePage.usersInFollowingProgress
+                }
                 followed={person.followed}
+                toggleIsFollowing={props.toggleIsFollowing}
                 follow={props.follow}
                 unfollow={props.unfollow}
             />
@@ -32,17 +36,28 @@ const People = (props) => {
 
     return (
         <div className="col-9">
-            <div>
-                <select
-                    ref={selectPage}
-                    class="form-control mt-1"
-                    onChange={() => props.onPageClicked(selectPage.current.value)}
-                    value={props.peoplePage.currentPage}
-                >
-                    {pagesArray.map((p) =>  <option>{p}</option>)}
-                </select>
+            <div className="row">
+                <div className="col-3 text-center mt-2 ml-auto">
+                    Выберите страницу:{" "}
+                </div>
+                <div className="col-4 mr-auto">
+                    <select
+                        ref={selectPage}
+                        class="form-control mt-1"
+                        onChange={() =>
+                            props.onPageClicked(selectPage.current.value)
+                        }
+                        value={props.peoplePage.currentPage}
+                    >
+                        {pagesArray.map((p) => (
+                            <option>{p}</option>
+                        ))}
+                    </select>
+                </div>
+                <div className="col-12">
+                    <div> {peopleArray} </div>
+                </div>
             </div>
-            <div> {peopleArray} </div>
         </div>
     );
 };

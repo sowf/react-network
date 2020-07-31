@@ -15,12 +15,6 @@ const Profile = (props) => {
     return (
         <div className="col-9">
             <div className="row">
-                <div className="col-12 p-0">
-                    <img
-                        className={`${styles.background} m-0`}
-                        src="https://upload.wikimedia.org/wikipedia/commons/0/09/POL_2007_08_04_Jaroslawiec_zachodniopomorskie_02.JPG"
-                    />
-                </div>
                 <UserImage
                     image={
                         props.profilePage.profile
@@ -28,13 +22,19 @@ const Profile = (props) => {
                             : ""
                     }
                 />
-                <UserInfo {...props.profilePage.profile}/>
-                <NewPost
-                    textInputValue={props.profilePage.newPost}
-                    publishPost={props.publishPost}
-                    createPost={props.createPost}
+                <UserInfo
+                    {...props.profilePage.profile}
+                    status={props.profilePage.status}
+                    updateUserStatus={props.updateUserStatus}
                 />
-                {postElements}
+                {props.profilePage.isHomeProfile && (
+                    <NewPost
+                        textInputValue={props.profilePage.newPost}
+                        publishPost={props.publishPost}
+                        createPost={props.createPost}
+                    /> 
+                )}
+                {props.profilePage.isHomeProfile && postElements}
             </div>
         </div>
     );

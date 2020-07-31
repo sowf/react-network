@@ -1,51 +1,31 @@
 import {
     follow,
+    getUsers,
     isFetching,
     setCountPeople,
     setCurrentPage,
     setPeople,
-    unfollow,
+    toggleIsFollowing,
+    unfollow
 } from "../../redux/peopleReducer";
 
-import Axios from "axios";
 import People from "./People";
 import { Preloader } from "../preloader";
 import React from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import {
+    getPeoplePage
+} from "../../redux/peopleSelector"
 
 class PeopleAPIComponent extends React.Component {
     componentDidMount() {
-        this.props.isFetching(true);
-        Axios.get(
-            `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.peoplePage.currentPage}&count=${this.props.peoplePage.pageSize}`,
-            {
-                headers: {
-                    "API-KEY": "aac71a96-ea21-4187-aca1-6ee0cb0d5ac1",
-                },
-            }
-        ).then((response) => {
-            this.props.isFetching(false);
-            this.props.setPeople(response.data.items);
-            this.props.setCountPeople(response.data.totalCount);
-        });
+        this.props.getUsers(this.props.peoplePage.currentPage, this.props.peoplePage.pageSize)
     }
 
     onPageClicked = (page) => {
-        this.props.isFetching(true);
-        this.props.setCurrentPage(page);
-        Axios.get(
-            `https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.peoplePage.pageSize}`,
-            {
-                headers: {
-                    "API-KEY": "aac71a96-ea21-4187-aca1-6ee0cb0d5ac1",
-                },
-            }
-        ).then((response) => {
-            this.props.isFetching(false);
-            this.props.setPeople(response.data.items);
-        });
-    };
+        this.props.setCurrentPage(page)
+        this.props.getUsers(page, this.props.peoplePage.pageSize)
+    }
 
     render() {
         return (
@@ -54,6 +34,7 @@ class PeopleAPIComponent extends React.Component {
             <Preloader /> :
             <People
                     peoplePage={this.props.peoplePage}
+                    toggleIsFollowing={this.props.toggleIsFollowing}
                     follow={this.props.follow}
                     unfollow={this.props.unfollow}
                     onPageClicked={this.onPageClicked}
@@ -66,7 +47,7 @@ class PeopleAPIComponent extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        peoplePage: state.peoplePage,
+        peoplePage: getPeoplePage(state)
     };
 };
 
@@ -77,6 +58,8 @@ const PeopleContainer = connect(mapStateToProps, {
     unfollow,
     setCountPeople,
     isFetching,
+    toggleIsFollowing,
+    getUsers
 })(PeopleAPIComponent);
 
 export default PeopleContainer;

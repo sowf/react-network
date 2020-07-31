@@ -1,5 +1,6 @@
-import React from 'react';
-import styles from './Post.module.css'
+import React from "react";
+import styles from "./Post.module.css";
+import defaulUserImage from "../../../assets/defaultUserImage.png";
 
 const Post = (props) => {
     return (
@@ -7,26 +8,24 @@ const Post = (props) => {
             <table>
                 <tr>
                     <th>
-                        <img className={`${styles.photo}`} src="https://offvkontakte.ru/wp-content/uploads/avatarka-pustaya-vk_0.jpg" />
+                        <img
+                            className={`${styles.photo}`}
+                            src={defaulUserImage}
+                        />
                     </th>
                     <th className="pl-2">
-                        <div className={styles.text}>
-                            {props.text}
-                        </div>
+                        <div className={styles.text}>{props.text}</div>
                     </th>
                 </tr>
                 <tr>
-                    <th>
-                    </th>
-                    <th className='pl-2'>
-                        <div className={styles.text}>
-                            {props.likes} likes
-                        </div>
+                    <th></th>
+                    <th className="pl-2">
+                        <div className={styles.text}>{props.likes} likes</div>
                     </th>
                 </tr>
             </table>
         </div>
-    )
-}
+    );
+};
 
 export default Post;
