@@ -13,7 +13,7 @@ import {
     getStatus
 } from "../../redux/profileSelector"
 
-import { Preloader } from "../preloader";
+import { Preloader } from "../Preloader";
 import Profile from "./Profile";
 import React from "react";
 import { compose } from "redux";

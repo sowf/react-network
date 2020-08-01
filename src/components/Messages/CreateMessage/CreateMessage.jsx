@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const CreateMessage = (props) => {
     
     let inputTextArea = React.createRef()
@@ -14,7 +13,7 @@ const CreateMessage = (props) => {
     }
 
     return (
-        <div className="col-10 ml-auto my-2">
+        <div className="col-md-7 col-sm-8 ml-auto mt-5">
             <input ref={inputTextArea} value={ props.textInputValue } onChange={createMessage} className="form-control" placeholder="Enter your message" />
             <button onClick={sendMessage} className="btn btn-primary btn-block float-right">Send</button>
 

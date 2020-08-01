@@ -1,6 +1,6 @@
 import { Field, reduxForm } from "redux-form";
 
-import { Preloader } from "../preloader";
+import { Preloader } from "../Preloader";
 import React from "react";
 
 const Login = (props) => {
@@ -9,7 +9,7 @@ const Login = (props) => {
     }
 
     return (
-        <div className="col-3 mx-auto mt-3">
+        <div className="col-md-4 col-sm-6  mx-auto my-3">
             <div class="card p-4">
                 <form onSubmit={props.handleSubmit}>
                     <div class="form-group">

@@ -10,7 +10,7 @@ import {
 } from "../../redux/peopleReducer";
 
 import People from "./People";
-import { Preloader } from "../preloader";
+import { Preloader } from "../Preloader";
 import React from "react";
 import { connect } from "react-redux";
 import {

@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./Post.module.css";
 import defaulUserImage from "../../../assets/defaultUserImage.png";
+import styles from "./Post.module.css";
 
 const Post = (props) => {
     return (
-        <div className="col-12 mt-2">
+        <div className="col-md-9 ml-auto mt-2">
             <table>
                 <tr>
                     <th>

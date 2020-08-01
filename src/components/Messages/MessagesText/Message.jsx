@@ -2,7 +2,7 @@ import React from 'react';
 
 const Message = (props) => {
     return (
-        <div className={`card w-25 my-2 p-2 ${props.align}`}>
+        <div className={`card w-75 my-2 p-2 ${props.align}`}>
             <p className="card-text">{props.text}</p>
         </div>
     )

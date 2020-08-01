@@ -35,12 +35,12 @@ const People = (props) => {
     let selectPage = React.createRef();
 
     return (
-        <div className="col-9">
+        <div className="col-md-9">
             <div className="row">
-                <div className="col-3 text-center mt-2 ml-auto">
+                <div className="col-md-4 col-sm-4 text-sm-right mt-2 ml-auto">
                     Выберите страницу:{" "}
                 </div>
-                <div className="col-4 mr-auto">
+                <div className="col-md-4 col-sm-4 mr-auto">
                     <select
                         ref={selectPage}
                         class="form-control mt-1"

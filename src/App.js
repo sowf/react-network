@@ -12,6 +12,11 @@ import { Route } from "react-router-dom";
 //TODO:роутинг до от чужого профиля до домашней
 //TODO:рефакторинг кода
 //TODO:создание lazy загрузки 
+//TODO:каптча
+//TODO:редактирование профиля
+//TODO:смена фотки
+//TODO:
+//TODO:
 
 function App() {
     return (

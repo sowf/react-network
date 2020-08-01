@@ -13,30 +13,28 @@ const Profile = (props) => {
     let textInputArea = new React.createRef();
 
     return (
-        <div className="col-9">
-            <div className="row">
-                <UserImage
-                    image={
-                        props.profilePage.profile
-                            ? props.profilePage.profile.photos.large
-                            : ""
-                    }
+        <>
+            <UserImage
+                image={
+                    props.profilePage.profile
+                        ? props.profilePage.profile.photos.large
+                        : ""
+                }
+            />
+            <UserInfo
+                {...props.profilePage.profile}
+                status={props.profilePage.status}
+                updateUserStatus={props.updateUserStatus}
+            />
+            {props.profilePage.isHomeProfile && (
+                <NewPost
+                    textInputValue={props.profilePage.newPost}
+                    publishPost={props.publishPost}
+                    createPost={props.createPost}
                 />
-                <UserInfo
-                    {...props.profilePage.profile}
-                    status={props.profilePage.status}
-                    updateUserStatus={props.updateUserStatus}
-                />
-                {props.profilePage.isHomeProfile && (
-                    <NewPost
-                        textInputValue={props.profilePage.newPost}
-                        publishPost={props.publishPost}
-                        createPost={props.createPost}
-                    /> 
-                )}
-                {props.profilePage.isHomeProfile && postElements}
-            </div>
-        </div>
+            )}
+            {props.profilePage.isHomeProfile && postElements}
+        </>
     );
 };
 
