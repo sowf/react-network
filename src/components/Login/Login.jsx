@@ -38,6 +38,11 @@ const Login = (props) => {
                             id="exampleInputPassword1"
                             placeholder="Пароль"
                         />
+                        <small id="emailHelp" class="form-text text-muted">
+                            Для входа используйте тестовые почту и пароль.<br/>
+                            Email: free@samuraijs.com <br />
+                            Пароль: free
+                        </small>
                     </div>
                     <div class="form-check">
                         <Field
