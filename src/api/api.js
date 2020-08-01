@@ -24,7 +24,7 @@ export const UsersAPI = {
     },
     unfollow(userId) {
         return instance.delete("follow/" + userId);
-    }
+    },
 };
 export const ProfileAPI = {
     getProfile(userId = 1) {
@@ -38,13 +38,34 @@ export const ProfileAPI = {
     updateStatus(status) {
         return instance.put("profile/status", { status: status });
     },
+    updateProfile(profile) {
+        return instance.put("profile", { ...profile });
+    },
+    updateProfilePhoto(imageResource) {
+        var formData = new FormData;
+        formData.append("image", imageResource)
+        return instance.put(
+            "profile/photo",
+            formData,
+            {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            }
+        );
+    },
 };
 export const AuthAPI = {
     getUserAuthenticated() {
         return instance.get(`auth/me`).then((response) => response.data);
     },
     loginRequest(email, password, rememberMe, captcha) {
-        return instance.post("auth/login", { email, password, rememberMe, captcha });
+        return instance.post("auth/login", {
+            email,
+            password,
+            rememberMe,
+            captcha,
+        });
     },
     logoutRequest() {
         return instance.delete("auth/login");

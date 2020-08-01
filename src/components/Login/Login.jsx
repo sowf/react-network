@@ -12,14 +12,12 @@ const Login = (props) => {
             <div class="card p-4">
                 <form onSubmit={props.handleSubmit}>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Адрес почты</label>
+                        <label>Адрес почты</label>
                         <Field
                             name="email"
                             component="input"
                             type="email"
                             class="form-control"
-                            id="exampleInputEmail1"
-                            aria-describedby="emailHelp"
                             placeholder="Введите email"
                         />
                         <small id="emailHelp" class="form-text text-muted">

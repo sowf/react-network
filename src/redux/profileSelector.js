@@ -4,3 +4,6 @@ export const getProfilePage = (state) => {
 export const getStatus = (state) => {
     return state.profilePage.status
 }
+export const getPhotos = (state) => {
+    return state.profilePage.profile.photos
+}

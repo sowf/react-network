@@ -11,7 +11,8 @@ const Navbar = (props) => {
                 <NavLink className="list-group-item list-group-item-action" to="/messages">Сообщения</NavLink>
                 <NavLink className="list-group-item list-group-item-action" to="/people">Люди</NavLink>
                 <a href="#" className="list-group-item list-group-item-action">Музыка</a>
-                <a href="#" className="list-group-item list-group-item-action">Настройки</a>
+                <a href="#" className="list-group-item list-group-item-action">Картинки</a>
+                <NavLink className="list-group-item list-group-item-action" to="/settings">Настройки</NavLink>
             </div>
         </div>
     );

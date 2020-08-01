@@ -6,6 +6,7 @@ const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_USER_STATUS = "SET_USER_STATUS";
 const TOGGLE_HOME_PROFILE = "TOGGLE_HOME_PROFILE"
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
+const SET_IMAGE = "SET_IMAGE"
 
 let initialState = {
     posts: [
@@ -37,6 +38,11 @@ export const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 profile: action.profile
+            };
+        case SET_IMAGE:
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.photos} 
             };
         case TOGGLE_HOME_PROFILE:
             return {
@@ -73,6 +79,9 @@ export const createPost = (text) => {
 export const setUserProfile = (profile) => {
     return { type: SET_USER_PROFILE, profile };
 };
+export const setUserImage = (photos) => {
+    return { type: SET_IMAGE, photos};
+};
 export const setUserStatus = (status) => {
     return { type: SET_USER_STATUS, status };
 };
@@ -105,5 +114,23 @@ export const updateUserStatus = (status) => {
                 dispatch(setUserStatus(status))
             }
         });
+    };
+};
+export const updateProfile = (profile) => {
+    return (dispatch) => {
+        ProfileAPI.updateProfile(profile).then(response => {
+            if (response.data.resultCode == 0) {
+                dispatch(setUserProfile(profile))
+            }
+        });
+    };
+};
+export const updateProfilePhoto = (imageResource) => {
+    return (dispatch) => {
+        ProfileAPI.updateProfilePhoto(imageResource).then(response =>{
+            if (response.data.resultCode == 0) {
+                dispatch(setUserImage(response.data.data))
+            }
+        })
     };
 };

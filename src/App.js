@@ -8,6 +8,7 @@ import PeopleContainer from "./components/People/PeopleContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import React from "react";
 import { Route } from "react-router-dom";
+import SettingsContainer from "./components/Settings/SettingsContainer";
 
 //TODO:роутинг до от чужого профиля до домашней
 //TODO:рефакторинг кода
@@ -35,6 +36,7 @@ function App() {
                     />
                     <Route path="/people" render={() => <PeopleContainer />} />
                     <Route path="/login" render={() => <LoginContainer />} />
+                    <Route path="/settings" render={() => <SettingsContainer />} />
                 </div>
             </div>
         </div>
