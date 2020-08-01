@@ -25,9 +25,8 @@ const People = (props) => {
                     props.peoplePage.usersInFollowingProgress
                 }
                 followed={person.followed}
-                toggleIsFollowing={props.toggleIsFollowing}
-                follow={props.follow}
-                unfollow={props.unfollow}
+                followRequest={props.followRequest}
+                unfollowRequest={props.unfollowRequest}
             />
         );
     });

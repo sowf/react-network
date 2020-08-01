@@ -1,12 +1,11 @@
 import {
-    follow,
+    followRequest,
     getUsers,
     isFetching,
     setCountPeople,
     setCurrentPage,
     setPeople,
-    toggleIsFollowing,
-    unfollow
+    unfollowRequest
 } from "../../redux/peopleReducer";
 
 import People from "./People";
@@ -34,9 +33,8 @@ class PeopleAPIComponent extends React.Component {
             <Preloader /> :
             <People
                     peoplePage={this.props.peoplePage}
-                    toggleIsFollowing={this.props.toggleIsFollowing}
-                    follow={this.props.follow}
-                    unfollow={this.props.unfollow}
+                    followRequest={this.props.followRequest}
+                    unfollowRequest={this.props.unfollowRequest}
                     onPageClicked={this.onPageClicked}
                 />
             }
@@ -54,12 +52,11 @@ let mapStateToProps = (state) => {
 const PeopleContainer = connect(mapStateToProps, {
     setPeople,
     setCurrentPage,
-    follow,
-    unfollow,
+    followRequest,
     setCountPeople,
     isFetching,
-    toggleIsFollowing,
-    getUsers
+    getUsers,
+    unfollowRequest
 })(PeopleAPIComponent);
 
 export default PeopleContainer;
