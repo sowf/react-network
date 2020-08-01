@@ -1,3 +1,6 @@
+## Site view
+This is a source code of mock website, it can be also browsed https://sowf.github.io/react-network/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
