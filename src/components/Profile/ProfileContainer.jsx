@@ -23,11 +23,22 @@ import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { withRouter } from "react-router-dom";
 
 class ProfileAPIContainer extends React.Component {
-    componentDidMount() {
+
+    profileUpdate = () =>{
         let userId = this.props.match.params.userId;
         this.props.getProfile(userId)
         
         this.props.toggleHomeProfile(this.props.id == userId)
+    }
+
+    componentDidMount() {
+        this.profileUpdate()
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        if (prevProps.match.params.userId != this.props.match.params.userId){
+            this.profileUpdate()
+        }
     }
 
     render() {

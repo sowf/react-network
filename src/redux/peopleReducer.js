@@ -9,32 +9,7 @@ const IS_FETCHING = "IS_FETCHING";
 const TOGGLE_IS_FOLLOWING_PROGRESS = "TOGGLE_IS_FOLLOWING_PROGRESS";
 
 let initialState = {
-    people: [
-        // {
-        //   name: "nastjaz",
-        //   id: 955678,
-        //   uniqueUrlName: null,
-        //   photos: {
-        //     small:
-        //       "https://www.talkwalker.com/images/2020/blog-headers/image-analysis.png",
-        //     large:
-        //       "https://www.talkwalker.com/images/2020/blog-headers/image-analysis.png",
-        //   },
-        //   status: null,
-        //   followed: false,
-        // },
-        // {
-        //   name: "Ozzy_Noizy1",
-        //   id: 955578,
-        //   uniqueUrlName: null,
-        //   photos: {
-        //     small: null,
-        //     large: null,
-        //   },
-        //   status: null,
-        //   followed: false,
-        // },
-    ],
+    people: [],
     pageSize: 5,
     totalUsersCount: 20,
     currentPage: 1,

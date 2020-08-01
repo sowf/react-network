@@ -4,10 +4,9 @@ import { Preloader } from "../Preloader";
 import React from "react";
 
 const Login = (props) => {
-    if (props.isFetching) {
-        return <Preloader />
+    if (props.auth.isFetching) {
+        return <Preloader />;
     }
-
     return (
         <div className="col-md-4 col-sm-6  mx-auto my-3">
             <div class="card p-4">
@@ -39,11 +38,25 @@ const Login = (props) => {
                             placeholder="Пароль"
                         />
                         <small id="emailHelp" class="form-text text-muted">
-                            Для входа используйте тестовые почту и пароль.<br/>
+                            Для входа используйте тестовые почту и пароль.
+                            <br />
                             Email: free@samuraijs.com <br />
                             Пароль: free
                         </small>
                     </div>
+
+                    {!!props.auth.Captcha && (
+                        <div class="form-group mt-3">
+                            <label for="exampleInputPassword1">Введите символы с картинки</label>
+                            <img src={props.auth.Captcha} />
+                            <Field
+                                name="captcha"
+                                component="input"
+                                class="form-control"
+                            />
+                        </div>
+                    )}
+                    
                     <div class="form-check">
                         <Field
                             name="rememberMe"
