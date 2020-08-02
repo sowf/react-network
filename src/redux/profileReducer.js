@@ -12,9 +12,9 @@ const SET_IMAGE = "SET_IMAGE";
 
 let initialState = {
     posts: [
-        { text: "Hello? Anyone here?", likes: 15 },
-        { text: "It is my second post", likes: 10 },
-        { text: "It is my first post", likes: 5 },
+        { id:1, text: "Hello? Anyone here?", likes: 15 },
+        { id:2, text: "It is my second post", likes: 10 },
+        { id:3, text: "It is my first post", likes: 5 },
     ],
     newPost: "",
     profile: null,
@@ -113,7 +113,7 @@ export const getUserStatus = (userId) => {
 export const updateUserStatus = (status) => {
     return (dispatch) => {
         ProfileAPI.updateStatus(status).then((response) => {
-            if (response.data.resultCode == 0) {
+            if (response.data.resultCode === 0) {
                 dispatch(setUserStatus(status));
             }
         });
@@ -122,7 +122,7 @@ export const updateUserStatus = (status) => {
 export const updateProfile = (profile) => {
     return (dispatch) => {
         ProfileAPI.updateProfile(profile).then((response) => {
-            if (response.data.resultCode == 0) {
+            if (response.data.resultCode === 0) {
                 dispatch(setUserProfile(profile));
             } else {
                 dispatch(
@@ -138,7 +138,7 @@ export const updateProfile = (profile) => {
 export const updateProfilePhoto = (imageResource) => {
     return (dispatch) => {
         ProfileAPI.updateProfilePhoto(imageResource).then((response) => {
-            if (response.data.resultCode == 0) {
+            if (response.data.resultCode === 0) {
                 dispatch(setUserImage(response.data.data));
             }
         });

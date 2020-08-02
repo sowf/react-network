@@ -1,6 +1,5 @@
 import "./PersonProfile.css";
 
-import { NavLink } from "react-router-dom";
 import PersonProfile from "./PersonProfile";
 import React from "react";
 
@@ -14,22 +13,19 @@ const People = (props) => {
         pagesArray.push(i);
     }
 
-    let peopleArray = props.peoplePage.people.map((person) => {
-        return (
-            <PersonProfile
-                id={person.id}
-                name={person.name}
-                status={person.status}
-                image={person.photos.large}
-                usersInFollowingProgress={
-                    props.peoplePage.usersInFollowingProgress
-                }
-                followed={person.followed}
-                followRequest={props.followRequest}
-                unfollowRequest={props.unfollowRequest}
-            />
-        );
-    });
+    let peopleArray = props.peoplePage.people.map((person) => (
+        <PersonProfile
+            key={person.id}
+            id={person.id}
+            name={person.name}
+            status={person.status}
+            image={person.photos.large}
+            usersInFollowingProgress={props.peoplePage.usersInFollowingProgress}
+            followed={person.followed}
+            followRequest={props.followRequest}
+            unfollowRequest={props.unfollowRequest}
+        />
+    ));
 
     let selectPage = React.createRef();
 
@@ -42,14 +38,14 @@ const People = (props) => {
                 <div className="col-md-4 col-sm-4 mr-auto">
                     <select
                         ref={selectPage}
-                        class="form-control mt-1"
+                        className="form-control mt-1"
                         onChange={() =>
                             props.onPageClicked(selectPage.current.value)
                         }
                         value={props.peoplePage.currentPage}
                     >
                         {pagesArray.map((p) => (
-                            <option>{p}</option>
+                            <option key={p}>{p}</option>
                         ))}
                     </select>
                 </div>

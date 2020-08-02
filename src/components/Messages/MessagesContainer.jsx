@@ -22,7 +22,6 @@ let mapStateToProps = (state) => {
     };
 };
 
-let MessagesContainerWithAuthRedirect = withAuthRedirect(MessagesAPIContainer);
 
 let mapDispatchToProps = (dispatch) => {
     return {

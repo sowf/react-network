@@ -1,5 +1,4 @@
-import { NavLink, Redirect } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
 import React from "react";
 import logo from "../../assets/logo.png";
 
@@ -9,7 +8,7 @@ const Header = (props) => {
     };
     return (
         <nav className="navbar navbar-expand-lg border-bottom">
-            <a className="navbar-brand text-secondary" href="#">
+            <NavLink className="navbar-brand text-secondary" to="/">
                 <img
                     src={logo}
                     height="30"
@@ -17,21 +16,21 @@ const Header = (props) => {
                     alt=""
                 />
                 React Network
-            </a>
+            </NavLink>
             {props.isAuthenticated && (
                 <NavLink className="ml-auto" to="/login">
                     <button
                         type="button"
                         onClick={onLogoutClick}
-                        class="btn btn-outline-primary"
+                        className="btn btn-outline-primary"
                     >
-                        {props.login} <i class="fas fa-sign-out-alt"></i>
+                        {props.login} <i className="fas fa-sign-out-alt"></i>
                     </button>
                 </NavLink>
             )}
             {!props.isAuthenticated && (
                 <NavLink className="ml-auto" to="/login">
-                    <button type="button" class="btn btn-outline-primary">
+                    <button type="button" className="btn btn-outline-primary">
                         Войти
                     </button>
                 </NavLink>

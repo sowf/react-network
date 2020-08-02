@@ -3,14 +3,11 @@ import Post from "./Post/Post";
 import React from "react";
 import UserImage from "./UserImage/UserImage";
 import UserInfo from "./UserInfo/UserInfo";
-import styles from "./Profile.module.css";
 
 const Profile = (props) => {
     let postElements = props.profilePage.posts.map((post) => (
         <Post key={post.id} likes={post.likes} text={post.text} />
     ));
-
-    let textInputArea = new React.createRef();
 
     return (
         <>

@@ -28,7 +28,7 @@ class ProfileAPIContainer extends React.Component {
         let userId = this.props.match.params.userId;
         this.props.getProfile(userId)
         
-        this.props.toggleHomeProfile(this.props.id == userId)
+        this.props.toggleHomeProfile(this.props.id === Number(userId))
     }
 
     componentDidMount() {
@@ -36,7 +36,7 @@ class ProfileAPIContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState){
-        if (prevProps.match.params.userId != this.props.match.params.userId){
+        if (prevProps.match.params.userId !== this.props.match.params.userId){
             this.profileUpdate()
         }
     }

@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom'
 import Person from './Person/Person'
 import React from 'react'
 

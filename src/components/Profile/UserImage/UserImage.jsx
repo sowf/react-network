@@ -8,6 +8,7 @@ const UserImage = (props) => {
             <img
                 className={`${styles.photo} d-block mx-auto`}
                 src={props.image ? props.image : defaultUserImage}
+                alt=""
             />
         </div>
     );

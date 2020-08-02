@@ -5,7 +5,6 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import {connect} from 'react-redux'
 import {getAuth} from "../../redux/authSelector";
-import {getIsFetching} from "../../redux/authSelector"
 import {reduxForm} from "redux-form";
 
 let LoginReduxForm = reduxForm({ form: "login" })(Login);

@@ -1,5 +1,4 @@
-import { Field, reduxForm } from "redux-form";
-
+import { Field } from "redux-form";
 import { Preloader } from "../Preloader";
 import React from "react";
 
@@ -9,33 +8,32 @@ const Login = (props) => {
     }
     return (
         <div className="col-md-4 col-sm-6  mx-auto my-3">
-            <div class="card p-4">
+            <div className="card p-4">
                 <form onSubmit={props.handleSubmit}>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label>Адрес почты</label>
                         <Field
                             name="email"
                             component="input"
                             type="email"
-                            class="form-control"
+                            className="form-control"
                             placeholder="Введите email"
                         />
-                        <small id="emailHelp" class="form-text text-muted">
+                        <small className="form-text text-muted">
                             Мы не занимаемся распространением вашей приватной
                             информации
                         </small>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Пароль</label>
+                    <div className="form-group">
+                        <label>Пароль</label>
                         <Field
                             name="password"
                             component="input"
                             type="password"
-                            class="form-control"
-                            id="exampleInputPassword1"
+                            className="form-control"
                             placeholder="Пароль"
                         />
-                        <small id="emailHelp" class="form-text text-muted">
+                        <small className="form-text text-muted">
                             Для входа используйте тестовые почту и пароль.
                             <br />
                             Email: free@samuraijs.com <br />
@@ -44,38 +42,37 @@ const Login = (props) => {
                     </div>
 
                     {!!props.auth.Captcha && (
-                        <div class="form-group mt-3">
-                            <label for="exampleInputPassword1">Введите символы с картинки</label>
-                            <img src={props.auth.Captcha} />
+                        <div className="form-group mt-3">
+                            <label>Введите символы с картинки</label>
+                            <img alt='' src={props.auth.Captcha} />
                             <Field
                                 name="captcha"
                                 component="input"
-                                class="form-control"
+                                className="form-control"
                             />
                         </div>
                     )}
                     
-                    <div class="form-check">
+                    <div className="form-check">
                         <Field
                             name="rememberMe"
                             component="input"
                             type="checkbox"
-                            class="form-check-input"
-                            id="exampleCheck1"
+                            className="form-check-input"
                         />
-                        <label class="form-check-label" for="exampleCheck1">
+                        <label className="form-check-label">
                             Запомнить меня
                         </label>
                     </div>
                     {props.error && (
-                        <div class="alert alert-danger" role="alert">
+                        <div className="alert alert-danger" role="alert">
                             {props.error}
                         </div>
                     )}
 
                     <button
                         type="submit"
-                        class="btn btn-primary btn-block mt-2"
+                        className="btn btn-primary btn-block mt-2"
                     >
                         Войти
                     </button>

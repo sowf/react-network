@@ -6,23 +6,31 @@ import styles from "./SettingsImage.module.css";
 const Settings = (props) => {
     return (
         <div className="col-md-5 mx-auto p-2">
-            <div class="card p-4">
+            <div className="card p-4">
                 <div className="mb-3 border-bottom">
                     <img
+                        alt=""
                         className={`${styles.photo} d-block mx-auto my-2`}
-                        src={props.profilePage.profile.photos ? props.profilePage.profile.photos.large : defaultUserImage}
+                        src={
+                            props.profilePage.profile.photos
+                                ? props.profilePage.profile.photos.large
+                                : defaultUserImage
+                        }
                     />
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
+                    <div className="input-group mb-3">
+                        <div className="input-group-prepend">
+                            <span className="input-group-text">
                                 Обновление аватара
                             </span>
                         </div>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" onChange={props.onPhotoChanged} />
+                        <div className="custom-file">
+                            <input
+                                type="file"
+                                className="custom-file-input"
+                                onChange={props.onPhotoChanged}
+                            />
                             <label
-                                class="custom-file-label"
-                                for="inputGroupFile01"
+                                className="custom-file-label"
                             >
                                 Выберите файл
                             </label>
@@ -31,96 +39,96 @@ const Settings = (props) => {
                 </div>
                 <form onSubmit={props.handleSubmit}>
                     <div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Псевдоним</label>
+                        <div className="form-group">
+                            <label>Псевдоним</label>
                             <Field
                                 required
                                 name="fullName"
                                 component="input"
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                             />
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Обо мне</label>
+                        <div className="form-group">
+                            <label>Обо мне</label>
                             <Field
                                 required
                                 name="aboutMe"
                                 component="input"
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                             />
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">
+                        <div className="form-group">
+                            <label>
                                 Аккаунт Facebook
                             </label>
                             <Field
                                 name="contacts.facebook"
                                 component="input"
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                             />
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label>Веб-сайт</label>
                             <Field
                                 name="contacts.website"
                                 component="input"
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                             />
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label>VK</label>
                             <Field
                                 name="contacts.vk"
                                 component="input"
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                             />
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label>Twitter</label>
                             <Field
                                 name="contacts.twitter"
                                 component="input"
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                             />
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label>Instagram</label>
                             <Field
                                 name="contacts.instagram"
                                 component="input"
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                             />
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label>GitHub</label>
                             <Field
                                 name="contacts.github"
                                 component="input"
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                             />
                         </div>
-                        <div class="form-check mb-2">
+                        <div className="form-check mb-2">
                             <Field
                                 required
                                 name="lookingForAJob"
                                 type="checkbox"
                                 component="input"
-                                class="form-check-input"
+                                className="form-check-input"
                             />
-                            <label class="form-check-label">
+                            <label className="form-check-label">
                                 В поисках работы
                             </label>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">
+                        <div className="form-group">
+                            <label>
                                 Описание желаемой вакансии
                             </label>
                             <Field
@@ -128,18 +136,18 @@ const Settings = (props) => {
                                 name="lookingForAJobDescription"
                                 component="input"
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                             />
                         </div>
                     </div>
                     {props.error && (
-                        <div class="alert alert-danger" role="alert">
+                        <div className="alert alert-danger" role="alert">
                             {props.error}
                         </div>
                     )}
                     <button
                         type="submit"
-                        class="btn btn-block btn-primary mt-3"
+                        className="btn btn-block btn-primary mt-3"
                     >
                         Отправить
                     </button>

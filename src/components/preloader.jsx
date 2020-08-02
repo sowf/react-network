@@ -5,7 +5,7 @@ import styles from "./Preloader.module.css";
 export const Preloader = () => {
     return (
         <div className="col-md-9 text-center">
-            <img src={preloaderImage} className={styles.preloaderImage} />
+            <img alt="" src={preloaderImage} className={styles.preloaderImage} />
         </div>
     );
 };

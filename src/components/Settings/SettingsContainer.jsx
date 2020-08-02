@@ -1,4 +1,3 @@
-import { getPhotos, getProfilePage } from "../../redux/profileSelector";
 import {
     getProfile,
     updateProfile,
@@ -11,6 +10,7 @@ import Settings from "./Settings";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { getId } from "../../redux/authSelector";
+import { getProfilePage } from "../../redux/profileSelector";
 import { reduxForm } from "redux-form";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
@@ -23,7 +23,7 @@ class SettingsContainer extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (!!prevProps.profilePage.profile){
-            if (prevProps.profilePage.profile.photos.large != this.props.profilePage.profile.photos.large) {
+            if (prevProps.profilePage.profile.photos.large !== this.props.profilePage.profile.photos.large) {
                 this.props.getProfile(this.props.id);
             }
         }

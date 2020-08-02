@@ -1,6 +1,5 @@
 import "./PersonProfile.css";
 
-import Axios from "axios";
 import DefaultUserImage from "../../assets/defaultUserImage.png";
 import { NavLink } from "react-router-dom";
 import React from "react";
@@ -20,6 +19,7 @@ const Person = (props) => {
             <div className="col-md-2 col-sm-4 my-2">
                 <div className="my-2 text-sm-left text-center">
                     <img
+                        alt=''
                         className="profilePic ml-2"
                         src={props.image ? props.image : DefaultUserImage}
                     />
@@ -33,11 +33,11 @@ const Person = (props) => {
             </div>
             <div className="col-md-6 col-sm-4 mt-2 text-md-right text-sm-left text-center">
                 {props.followed ? (
-                    <button disabled={props.usersInFollowingProgress.some(id => id === props.id)} class="btn btn-primary" onClick={onUnfollowClick}>
+                    <button disabled={props.usersInFollowingProgress.some(id => id === props.id)} className="btn btn-primary" onClick={onUnfollowClick}>
                         Отписаться
                     </button>
                 ) : (
-                    <button disabled={props.usersInFollowingProgress.some(id => id === props.id)} class="btn btn-primary" onClick={onFollowClick}>
+                    <button disabled={props.usersInFollowingProgress.some(id => id === props.id)} className="btn btn-primary" onClick={onFollowClick}>
                         Подписаться
                     </button>
                 )}

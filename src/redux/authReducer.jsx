@@ -96,11 +96,11 @@ export const login = (email, password, rememberMe, captcha) => {
             (rememberMe = false),
             captcha
         ).then((response) => {
-            if (response.data.resultCode == 0) {
+            if (response.data.resultCode === 0) {
                 dispatch(getUserAuthenticated());
                 dispatch(toggleIsFetching(false));
                 dispatch(setCaptcha(null));
-            } else if (response.data.resultCode == 10) {
+            } else if (response.data.resultCode === 10) {
                 dispatch(toggleIsCaptcha(true));
                 Promise.all([
                     AuthAPI.getCaptcha().then((response) =>
@@ -122,7 +122,7 @@ export const login = (email, password, rememberMe, captcha) => {
 export const logout = () => {
     return (dispatch) => {
         AuthAPI.logoutRequest().then((response) => {
-            if (response.data.resultCode == 0) {
+            if (response.data.resultCode === 0) {
                 dispatch(setUserDeauthenticated());
             }
         });
