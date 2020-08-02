@@ -31,6 +31,7 @@ class SettingsContainer extends React.Component {
 
     onSubmitSettings = (formData) => {
         this.props.updateProfile(formData);
+        this.props.getProfile(this.props.id);
     };
 
     onPhotoChanged = (e) => {
@@ -46,6 +47,7 @@ class SettingsContainer extends React.Component {
                 initialValues={this.props.profilePage.profile}
                 {...this.props}
                 onPhotoChanged={this.onPhotoChanged}
+                onSubmit={this.onSubmitSettings}
             />
         );
     }

@@ -132,11 +132,16 @@ const Settings = (props) => {
                             />
                         </div>
                     </div>
+                    {props.error && (
+                        <div class="alert alert-danger" role="alert">
+                            {props.error}
+                        </div>
+                    )}
                     <button
                         type="submit"
                         class="btn btn-block btn-primary mt-3"
                     >
-                        Submit
+                        Отправить
                     </button>
                 </form>
             </div>
