@@ -17,13 +17,15 @@ import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 let SettingsReduxForm = reduxForm({ form: "settings" })(Settings);
 
 class SettingsContainer extends React.Component {
-    componentWillMount() {
+    componentDidMount() {
         this.props.getProfile(this.props.id);
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps.photos.large != this.props.photos.large) {
-            this.props.getProfile(this.props.id);
+        if (!!prevProps.profilePage.profile){
+            if (prevProps.profilePage.profile.photos.large != this.props.profilePage.profile.photos.large) {
+                this.props.getProfile(this.props.id);
+            }
         }
     }
 
@@ -36,14 +38,13 @@ class SettingsContainer extends React.Component {
     };
 
     render() {
-        if (this.props.profilePage.isFetching){
+        if (this.props.profilePage.isFetching || !this.props.profilePage.profile){
             return <Preloader />
         }
         return (
             <SettingsReduxForm
                 initialValues={this.props.profilePage.profile}
                 {...this.props}
-                photo={this.props.photos ? this.props.photos.large : ""}
                 onPhotoChanged={this.onPhotoChanged}
             />
         );
@@ -52,8 +53,7 @@ class SettingsContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
     profilePage: getProfilePage(state),
-    id: getId(state),
-    photos: getPhotos(state),
+    id: getId(state)
 });
 
 export default compose(

@@ -10,7 +10,7 @@ const Settings = (props) => {
                 <div className="mb-3 border-bottom">
                     <img
                         className={`${styles.photo} d-block mx-auto my-2`}
-                        src={props.photo ? props.photo : defaultUserImage}
+                        src={props.profilePage.profile.photos ? props.profilePage.profile.photos.large : defaultUserImage}
                     />
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
